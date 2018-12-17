@@ -1,6 +1,8 @@
 # Chain Of Responsibility Pattern
 This light library helps to implement quickly a chain of responsibility. This pattern is especially useful when you need a clear process that involve multiple steps.
-Installation
+
+
+## Installation
 
 The suggested installation method is via composer:
 

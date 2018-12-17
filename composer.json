@@ -1,6 +1,6 @@
 {
-  "name": "ph/tst",
-  "description": "teste",
+  "name": "vox-tecnologia/chain-of-responsibility",
+  "description": "This light library helps to implement quickly a chain of responsibility. This pattern is especially useful when you need a clear process that involve multiple steps.",
   "type": "library",
   "license": "mit",
   "minimum-stability": "stable",
