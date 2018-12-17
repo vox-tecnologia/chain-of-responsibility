@@ -19,4 +19,5 @@ interface ContextInterface
      * @return ContextInterface
      */
     public function set(string $name, $value): ContextInterface;
+
 }

@@ -32,4 +32,5 @@ interface ChainHandlerInterface
      * @return ChainHandlerInterface
      */
     public function addHandler(ChainHandlerInterface $handler): ChainHandlerInterface;
+
 }

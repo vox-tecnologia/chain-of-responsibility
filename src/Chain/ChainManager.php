@@ -68,6 +68,8 @@ class ChainManager implements ChainManagerInterface
                 return $handler;
             };
         }
+
+        return null;
     }
 
 }
