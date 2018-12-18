@@ -180,25 +180,92 @@ class ChainTest extends TestCase
         $this->assertCount(3, $context->get('elements'));
     }
 
+
+    /**
+     *
+     */
+    public function testDinamicMonsterLevelWithCanNotInvokeChainHandlersWithStopPropagation()
+    {
+        $context = new Context();
+        $context->set('elements', new \ArrayObject());
+        $manager = new ChainManager();
+        $manager->addHandler($this->createClass(false));
+        $manager->addHandler($this->createClass(false));
+        $manager->addHandler($this->createClass(false));
+
+        $manager
+            ->addHandler($this->createClass(false))
+            ->addHandler($this->createClass(true));
+
+        $manager
+            ->addHandler($this->createClass(false))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true));
+
+        $manager
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true, null, true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+            ->addHandler($this->createClass(true))
+        ;
+
+        $manager->run($context);
+        $this->assertCount(4, $context->get('elements'));
+    }
+
+
     /**
      * @param bool                       $canInvoke
-     * @param ChainHandlerInterface|null $next
+     * @param ChainHandlerInterface|null $handler
+     * @param bool                       $stop
      *
-     * @return ChainHandlerInterface|__anonymous@453
+     * @return ChainHandlerInterface|__anonymous@6225
      */
-    public function createClass(bool $canInvoke, ChainHandlerInterface $handler = null)
+    public function createClass(bool $canInvoke, ChainHandlerInterface $handler = null, bool $stopPropagation = false)
     {
-        return new class($canInvoke, $handler) implements ChainHandlerInterface
+        return new class($canInvoke, $handler, $stopPropagation) implements ChainHandlerInterface
         {
 
+            /**
+             * @var bool
+             */
             private $canInvoke;
 
+            /**
+             * @var ChainHandlerInterface
+             */
             private $next;
 
-            public function __construct(bool $canInvoke, ChainHandlerInterface $next = null)
+            /**
+             * @var bool
+             */
+            private $stopPropagation;
+
+            public function __construct(
+                bool $canInvoke,
+                ChainHandlerInterface $next = null,
+                bool $stopPropagation = false
+            )
             {
                 $this->canInvoke = $canInvoke;
                 $this->next = $next;
+                $this->stopPropagation = $stopPropagation;
             }
 
             /**
@@ -221,6 +288,10 @@ class ChainTest extends TestCase
                 /** @var $elements \ArrayObject */
                 $elements = $context->get('elements');
                 $elements->offsetSet(random_int(1, 9999999), __CLASS__);
+
+                if ($this->stopPropagation) {
+                    $context->stopPropagation();
+                }
             }
 
             /**
