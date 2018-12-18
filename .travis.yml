@@ -10,7 +10,7 @@ before_script:
   - composer install --prefer-source
 
 script:
-  - phpunit --coverage-clover=coverage.clover --configuration ./phpunit.xml ./tests
+  - phpunit --coverage-clover=coverage.clover --configuration ./phpunit.xml
 
 
 after_script:
