@@ -235,7 +235,7 @@ class ChainTest extends TestCase
      * @param ChainHandlerInterface|null $handler
      * @param bool                       $stop
      *
-     * @return ChainHandlerInterface|__anonymous@6225
+     * @return ChainHandlerInterface
      */
     public function createClass(bool $canInvoke, ChainHandlerInterface $handler = null, bool $stopPropagation = false)
     {
