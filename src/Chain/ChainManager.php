@@ -2,6 +2,7 @@
 namespace Chain;
 
 use Chain\Context\ContextInterface;
+use Chain\Exception\ChainExceptionInterface;
 use Chain\Handler\ChainHandlerInterface;
 
 class ChainManager implements ChainManagerInterface
@@ -34,25 +35,26 @@ class ChainManager implements ChainManagerInterface
         return $handler;
     }
 
-
     /**
-     * @param ContextInterface $context
-     *
-     * @return mixed
+     * @param ContextInterface           $context
+     * @param ChainHandlerInterface|null $handler
      */
     public function run(ContextInterface $context, ChainHandlerInterface $handler = null)
     {
-        if (!$handler) {
-            $handler = $this->firstRunner($context);
-        }
-
-        if (!empty($handler) && $handler->canInvoke($context)) {
-            $handler($context);
-            $next = $handler->next();
-
-            if ($next) {
-                $this->run($context, $next);
+        try {
+            if (!$handler) {
+                $handler = $this->firstRunner($context);
             }
+
+            if (!empty($handler) && $handler->canInvoke($context)) {
+                $handler($context);
+                $next = $handler->next();
+                if ($next) {
+                    $this->run($context, $next);
+                }
+            }
+        } catch (ChainExceptionInterface $exception) {
+            // Stop runner
         }
     }
 

@@ -2,7 +2,7 @@
 
 namespace Chain\Exception;
 
-class StopPropagationException extends \DomainException implements ChainExceptionInterface
+class CanNotHandleException extends \DomainException implements ChainExceptionInterface
 {
 
 }

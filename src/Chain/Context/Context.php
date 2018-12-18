@@ -1,8 +1,14 @@
 <?php
 namespace Chain\Context;
 
+use Chain\Exception\StopPropagationException;
+
 class Context implements ContextInterface
 {
+
+    /**
+     * @var \ArrayObject
+     */
     private $bagContext;
 
     /**
@@ -25,6 +31,7 @@ class Context implements ContextInterface
 
     /**
      * @param string $name
+     * @param        $value
      *
      * @return ContextInterface
      */
@@ -35,4 +42,11 @@ class Context implements ContextInterface
         return $this;
     }
 
+    /**
+     * @throws StopPropagationException
+     */
+    public function stopPropagation()
+    {
+        throw new StopPropagationException();
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace Chain\Context;
 
+use Chain\Exception\StopPropagationException;
+
 interface ContextInterface
 {
 
@@ -19,5 +21,10 @@ interface ContextInterface
      * @return ContextInterface
      */
     public function set(string $name, $value): ContextInterface;
+
+    /**
+     * @throws StopPropagationException
+     */
+    public function stopPropagation();
 
 }

@@ -6,6 +6,7 @@ use Chain\Handler\ChainHandlerInterface;
 
 interface ChainManagerInterface
 {
+
     /**
      * @param ChainHandlerInterface $handler
      *
@@ -14,9 +15,8 @@ interface ChainManagerInterface
     public function addHandler(ChainHandlerInterface $handler): ChainHandlerInterface;
 
     /**
-     * @param ContextInterface $context
-     *
-     * @return mixed
+     * @param ContextInterface           $context
+     * @param ChainHandlerInterface|null $handler
      */
     public function run(ContextInterface $context, ChainHandlerInterface $handler = null);
 }
