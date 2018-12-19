@@ -14,7 +14,7 @@ composer require vox-tecnologia/chain-of-responsibility
 
 ### Context
 Object to send information into handlers. 
-You can create custom context class (with Chain\Context\ContextInterface) or use basic context (Chain\Context\Context).
+You can create custom context class (with Vox\Chain\Context\ContextInterface) or use basic context (Vox\Chain\Context\Context).
 
 ### Handler
 This object is able to understand the context and ensure execution if necessary.
@@ -28,7 +28,7 @@ It is able to understand and make happen the whole flow of the Chain.
 
 - Create a context
 ```php
-use Chain\Context\Context;
+use Vox\Chain\Context\Context;
 ```
 ```php
 $context = new Context();
@@ -38,14 +38,14 @@ $context->set('bar', 5);
 
 - Create Handler
 ```php
-use Chain\Handler\ChainHandlerInterface;
+use Vox\Chain\Handler\ChainHandlerInterface;
 
 class FirstDethFirstHandler implements ChainHandlerInterface
 {
 ...
 ```
 ```php
-use Chain\Handler\ChainHandlerInterface;
+use Vox\Chain\Handler\ChainHandlerInterface;
 
 class FirstDethSecoundHandler implements ChainHandlerInterface
 {
@@ -53,7 +53,7 @@ class FirstDethSecoundHandler implements ChainHandlerInterface
 ```
 
 ```php
-use Chain\Handler\ChainHandlerInterface;
+use Vox\Chain\Handler\ChainHandlerInterface;
 
 class SecoundDethOneHandler implements ChainHandlerInterface
 {
@@ -64,7 +64,7 @@ class SecoundDethOneHandler implements ChainHandlerInterface
 - To finish, build and run the manager 
 
 ```php
-use Chain\ChainManager;
+use Vox\Chain\ChainManager;
 ```
 
 ```php
@@ -78,12 +78,5 @@ $manager->addHandler(new SecoundDethOneHandler);
 
 $manager->run($context);
 ```
-
-
-
-
-
-
-
 
 

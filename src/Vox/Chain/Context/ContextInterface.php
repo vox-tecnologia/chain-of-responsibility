@@ -1,8 +1,8 @@
 <?php
 
-namespace Chain\Context;
+namespace Vox\Chain\Context;
 
-use Chain\Exception\StopPropagationException;
+use Vox\Chain\Exception\StopPropagationException;
 
 interface ContextInterface
 {

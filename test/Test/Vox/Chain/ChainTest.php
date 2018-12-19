@@ -1,11 +1,11 @@
 <?php
 
-namespace Test\Chain;
+namespace Test\Vox\Chain;
 
-use Chain\ChainManager;
-use Chain\Context\Context;
-use Chain\Context\ContextInterface;
-use Chain\Handler\ChainHandlerInterface;
+use Vox\Chain\ChainManager;
+use Vox\Chain\Context\Context;
+use Vox\Chain\Context\ContextInterface;
+use Vox\Chain\Handler\ChainHandlerInterface;
 use PHPUnit\Framework\TestCase;
 
 class ChainTest extends TestCase

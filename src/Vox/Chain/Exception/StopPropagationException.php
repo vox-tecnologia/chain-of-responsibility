@@ -1,6 +1,6 @@
 <?php
 
-namespace Chain\Exception;
+namespace Vox\Chain\Exception;
 
 class StopPropagationException extends \RuntimeException implements ChainExceptionInterface
 {

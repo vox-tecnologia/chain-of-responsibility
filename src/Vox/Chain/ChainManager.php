@@ -1,9 +1,9 @@
 <?php
-namespace Chain;
+namespace Vox\Chain;
 
-use Chain\Context\ContextInterface;
-use Chain\Exception\ChainExceptionInterface;
-use Chain\Handler\ChainHandlerInterface;
+use Vox\Chain\Context\ContextInterface;
+use Vox\Chain\Exception\ChainExceptionInterface;
+use Vox\Chain\Handler\ChainHandlerInterface;
 
 class ChainManager implements ChainManagerInterface
 {

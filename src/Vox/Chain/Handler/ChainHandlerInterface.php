@@ -1,8 +1,8 @@
 <?php
 
-namespace Chain\Handler;
+namespace Vox\Chain\Handler;
 
-use Chain\Context\ContextInterface;
+use Vox\Chain\Context\ContextInterface;
 
 interface ChainHandlerInterface
 {
