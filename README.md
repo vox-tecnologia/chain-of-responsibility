@@ -1,6 +1,10 @@
 # Chain Of Responsibility Pattern
 This light library helps to implement quickly a chain of responsibility. This pattern is especially useful when you need a clear process that involve multiple steps.
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vox-tecnologia/chain-of-responsibility/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vox-tecnologia/chain-of-responsibility/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/vox-tecnologia/chain-of-responsibility/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/vox-tecnologia/chain-of-responsibility/?branch=master)
+[![Build Status](https://travis-ci.org/vox-tecnologia/chain-of-responsibility.svg?branch=master)](https://travis-ci.org/vox-tecnologia/chain-of-responsibility)
+
 
 ## Installation
 
