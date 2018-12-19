@@ -61,7 +61,7 @@ class ChainManager implements ChainManagerInterface
     /**
      * @param ContextInterface $context
      *
-     * @return mixed
+     * @return ChainHandlerInterface|null
      */
     private function firstRunner(ContextInterface $context)
     {
